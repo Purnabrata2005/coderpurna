@@ -3380,7 +3380,9 @@ body[data-theme="dark"] .footer-social-compact a:hover {
 
 .education-card,
 .languages-card {
-  flex: 1;
+  flex: none;
+  height: 320px !important;
+  overflow-y: auto !important;
 }
 
 .education-card {
@@ -3421,6 +3423,166 @@ body[data-theme="dark"] .footer-social-compact a:hover {
   gap: 0.5rem;
   margin-top: auto;
   opacity: 0.8;
+}
+
+.education-item-collapsible {
+  border: 2px solid var(--border);
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: 4px 4px 0 var(--border);
+  transition: all 0.2s ease;
+  margin-bottom: 1.5rem;
+}
+
+body[data-theme="dark"] .education-item-collapsible {
+  background: var(--bg);
+}
+
+.education-item-collapsible:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 3px 3px 0 var(--border);
+}
+
+.education-item-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.education-item-icon-wrapper {
+  width: 42px;
+  height: 42px;
+  background: var(--secondary);
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 2px 2px 0 var(--border);
+}
+
+.education-item-icon-wrapper i {
+  font-size: 1.25rem;
+  color: var(--text);
+}
+
+.education-item-title-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.education-item-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.education-item-school {
+  font-size: 0.9rem;
+  font-family: 'Space Mono', monospace;
+  color: var(--text);
+  opacity: 0.8;
+  margin: 0;
+}
+
+.education-item-date {
+  font-size: 0.85rem;
+  color: var(--text);
+  opacity: 0.6;
+  margin: 0;
+  margin-top: 0.25rem;
+}
+
+.education-item-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  opacity: 0.7;
+  transition: transform 0.2s ease;
+}
+
+.education-item-toggle-btn:hover {
+  opacity: 1;
+}
+
+.education-item-content {
+  padding: 0 1.25rem 1.25rem 1.25rem;
+  border-top: 2px dashed var(--border);
+  margin-top: 0;
+  padding-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.education-item-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.education-item-bullets li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.education-item-bullets li::before {
+  content: "•";
+  position: absolute;
+  left: 0.25rem;
+  top: -0.1rem;
+  color: var(--border);
+  font-size: 1.2rem;
+}
+
+.education-item-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.education-tag {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 2px 2px 0 var(--border);
+  color: var(--text);
+  transition: all 0.15s ease;
+}
+
+body[data-theme="dark"] .education-tag {
+  background: var(--bg);
+}
+
+.education-tag:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--border);
 }
 
 .languages-card {
@@ -3615,6 +3777,8 @@ body[data-theme="dark"] .language-item:hover {
   .education-card,
   .languages-card {
     padding: 1.25rem;
+    height: 260px !important;
+    overflow-y: auto !important;
   }
 
   .language-item {

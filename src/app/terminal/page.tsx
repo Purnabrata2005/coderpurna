@@ -451,7 +451,11 @@ export default function TerminalPage() {
     const eduText =
       wrapColor('🎓 Education\n\n', '#ff8c00') +
       wrapColor('Bachelor\'s Degree in Computer Science & Engineering\n', '#ffffff') +
-      'Ramkrishna Mahato Government Engineering College • Purulia, West Bengal, India (2023 - 2027 Pursuing)'
+      'Ramkrishna Mahato Government Engineering College • Purulia, West Bengal, India (2023 - 2027 Pursuing)\n\n' +
+      wrapColor('Higher Secondary (Class XII)\n', '#ffffff') +
+      'Bodhra Pantheswari High School • West Bengal, India (2021 - 2023)\n\n' +
+      wrapColor('Secondary Education (Class X)\n', '#ffffff') +
+      'Bodhra Pantheswari High School • West Bengal, India (2019 - 2021)'
 
     printOutput(id, '', 'raw', eduText)
   }
