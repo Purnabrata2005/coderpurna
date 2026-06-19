@@ -1,6 +1,9 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
+import type { ProfilePage as PageSchema, WithContext } from "schema-dts"
+import { USER } from "@/data/user"
+import { SITE_INFO } from "@/config/site"
 
 import LoaderOverlay from '../components/LoaderOverlay'
 import ProgressBar from '../components/ProgressBar'
@@ -16,6 +19,21 @@ import GithubCalendarSection from '../components/GithubCalendar'
 import EducationLanguages from '../components/EducationLanguages'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
+
+function getPageJsonLd(): WithContext<PageSchema> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    dateCreated: USER.dateCreated,
+    dateModified: new Date().toISOString(),
+    mainEntity: {
+      "@type": "Person",
+      name: USER.displayName,
+      identifier: USER.username,
+      image: `${SITE_INFO.url}${USER.avatar}`,
+    },
+  }
+}
 
 export default function Home() {
   const [isLoaderHidden, setIsLoaderHidden] = useState(false)
@@ -374,6 +392,12 @@ export default function Home() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(getPageJsonLd()).replace(/</g, "\\u003c"),
+        }}
+      />
       {/* Loading Screen */}
       <LoaderOverlay isLoaderHidden={isLoaderHidden} />
 
